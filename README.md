@@ -4,11 +4,8 @@ This project is a **React application powered by Vite** that integrates with **A
 
 ---
 
-## 🔗 Live Demo & Related Projects
-
-- **Live site:** [healthinclimate.ai](https://healthinclimate.ai/) :contentReference[oaicite:0]{index=0}  
-- **Backend for email notifications:** [cornellClimateHackathonBackend](https://github.com/konradkop/cornellClimateHackathonBackend) :contentReference[oaicite:1]{index=1}
-
+## 🔗 Related Projects
+- **Backend for email notifications:** [cornellClimateHackathonBackend](https://github.com/konradkop/cornellClimateHackathonBackend)
 ---
 
 ## 🚀 Getting Started
