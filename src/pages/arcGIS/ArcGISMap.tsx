@@ -60,7 +60,7 @@ const ArcGISMapWithToggle = ({
 
     viewRef.current = mapView;
 
-    const hotspotLayer = new GraphicsLayer({ title: "Hotspots" });
+    const hotspotLayer = new GraphicsLayer({ title: "Potential Hotspots" });
 
     for (const hotspot of hotspotCenters) {
       const center = new Point({
@@ -87,14 +87,14 @@ const ArcGISMapWithToggle = ({
     }
 
     webMap.add(hotspotLayer);
-    const emptyLayer = new GraphicsLayer({ title: "Empty Layer" });
-    webMap.add(emptyLayer);
+    // const emptyLayer = new GraphicsLayer({ title: "Empty Layer" });
+    // webMap.add(emptyLayer);
 
     webMap.when(() => {
       const featureLayers =
         webMap.layers.items.filter((l: FeatureLayer) => l.type === "feature") ||
         [];
-      setLayers([...featureLayers, hotspotLayer, emptyLayer]);
+      setLayers([...featureLayers, hotspotLayer]);
     });
   }, [hotspotCenters]);
 

@@ -1,4 +1,4 @@
-import { Card, Container, ScrollArea, Table, Title } from "@mantine/core";
+import { Card, Container, Table, Title } from "@mantine/core";
 
 interface Facility {
   FID: number;
@@ -53,6 +53,17 @@ const FacilityList: React.FC<FacilityListProps> = ({
     hotspotRanges[currentHotSpot.name][1]
   );
 
+  function generateRandomPhoneNumber() {
+    const getRandomDigit = (min, max) =>
+      Math.floor(Math.random() * (max - min + 1)) + min;
+
+    const areaCode = getRandomDigit(100, 999);
+    const exchangeCode = getRandomDigit(100, 999);
+    const lineNumber = getRandomDigit(1000, 9999);
+
+    return `(${areaCode}) ${exchangeCode}-${lineNumber}`;
+  }
+
   return (
     <Container style={{ marginTop: "1rem", maxWidth: "800px" }}>
       <Card shadow="sm" padding="md" radius="md" withBorder>
@@ -69,13 +80,15 @@ const FacilityList: React.FC<FacilityListProps> = ({
             <col style={{ width: "30%" }} />
             <col style={{ width: "15%" }} />
             <col style={{ width: "15%" }} />
+            <col style={{ width: "15%" }} />
             <col style={{ width: "20%" }} />
             <col style={{ width: "20%" }} />
           </colgroup>
           <thead>
             <tr>
               <th>Name</th>
-              <th>State</th>
+              <th>Ward</th>
+              <th>Number</th>
               <th>LGA</th>
               <th>Ownership</th>
               <th>Last Update</th>
@@ -91,7 +104,8 @@ const FacilityList: React.FC<FacilityListProps> = ({
                 }}
               >
                 <td>{facility.facility_n}</td>
-                <td>{facility.state}</td>
+                <td>{facility.ward}</td>
+                <td>{generateRandomPhoneNumber()}</td>
                 <td>{facility.lga}</td>
                 <td>{facility.ownership}</td>
                 <td>{facility.last_updat}</td>
