@@ -14,7 +14,7 @@ function AboutPage() {
       }}
     >
       <Title order={1} mb="md">
-        AboutPage
+        About Page WIP
       </Title>
     </Flex>
   );

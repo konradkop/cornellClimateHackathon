@@ -4,6 +4,7 @@ import { MantineProvider, Title, Flex, Image } from "@mantine/core";
 import hospitalLogo from "../assets/hospitalLogo.png";
 import ArcGISMap from "../pages/arcGIS/ArcGISMap";
 import HomePageHero from "./homePage/HomePageHero";
+import ViewButtons from "./homePage/ViewButtons";
 
 function HomePage() {
   const linkStyle = {
@@ -11,38 +12,49 @@ function HomePage() {
     color: "#333",
     fontWeight: "500",
     padding: "0.5rem 1rem",
-    borderRadius: "4px",
+    transition: "background 0.2s, color 0.2s",
+  };
+
+  const linkStyleCurrent = {
+    textDecoration: "none",
+    color: "#ec0000ff",
+    fontWeight: "900",
+    padding: "0.5rem 1rem",
     transition: "background 0.2s, color 0.2s",
   };
 
   const hotspotCenters = [
     {
-      name: "red",
+      name: "Ebonyi",
       longitude: 8.083,
       latitude: 6.25,
-      radius: 80000, // adjust if needed
+      radius: 80000,
       color: [255, 0, 0, 0.5], // red
+      colorText: "red",
     },
     {
-      name: "blue",
-      longitude: 6.0,
-      latitude: 10.0,
+      name: "Oyo",
+      longitude: 3.93125,
+      latitude: 7.85257,
       radius: 30000,
       color: [0, 0, 255, 0.5], // blue
+      colorText: "blue",
     },
     {
-      name: "green",
-      longitude: 7.5,
-      latitude: 5.417,
+      name: "Niger",
+      longitude: 5.6511,
+      latitude: 9.9326,
       radius: 50000,
       color: [0, 255, 0, 0.5], // green
+      colorText: "green",
     },
     {
-      name: "orange",
-      longitude: 9.56,
-      latitude: 12.1,
+      name: "Cross River",
+      longitude: 8.5,
+      latitude: 5.75,
       radius: 40000,
       color: [255, 165, 0, 0.5], // orange
+      colorText: "orange",
     },
   ];
 
@@ -50,6 +62,22 @@ function HomePage() {
 
   return (
     <MantineProvider>
+      <nav
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f5f5f5",
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        <Link to="/" style={linkStyleCurrent}>
+          Government View
+        </Link>
+        <Link to="/patients" style={linkStyle}>
+          Clinic View
+        </Link>
+      </nav>
       <Flex style={{ display: "flex", flexDirection: "row" }}>
         <Flex style={{ display: "flex", flexDirection: "column" }}>
           <Flex
@@ -118,33 +146,12 @@ function HomePage() {
               );
             })}
           </div>
+          <ViewButtons />
           <HomePageHero
             hotspotCenters={hotspotCenters}
             currentHotSpot={currentHotSpot}
             setCurrentHotSpot={setCurrentHotSpot}
           />
-          <nav
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "1.5rem",
-              padding: "1rem",
-              backgroundColor: "#f5f5f5",
-              borderBottom: "1px solid #ddd",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            <Link to="/" style={linkStyle}>
-              Home
-            </Link>
-            <Link to="/about" style={linkStyle}>
-              About
-            </Link>
-            <Link to="/patients" style={linkStyle}>
-              Patients
-            </Link>
-          </nav>
         </Flex>
 
         <Flex
@@ -167,7 +174,7 @@ function HomePage() {
               marginTop: "2rem",
               width: "80%",
               height: "70px",
-              backgroundColor: currentHotSpot.name,
+              backgroundColor: currentHotSpot.colorText,
               color: "white",
               fontSize: "1.5rem",
               fontWeight: "bold",

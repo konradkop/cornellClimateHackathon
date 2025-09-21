@@ -87,6 +87,7 @@ const ArcGISMapWithToggle = ({
     }
 
     webMap.add(hotspotLayer);
+
     // const emptyLayer = new GraphicsLayer({ title: "Empty Layer" });
     // webMap.add(emptyLayer);
 
@@ -94,12 +95,20 @@ const ArcGISMapWithToggle = ({
       const featureLayers =
         webMap.layers.items.filter((l: FeatureLayer) => l.type === "feature") ||
         [];
-      setLayers([...featureLayers, hotspotLayer]);
+      webMap.layers.reorder(hotspotLayer, webMap.layers.length - 1);
+      setLayers([hotspotLayer, ...featureLayers]);
     });
   }, [hotspotCenters]);
 
   const toggleLayer = (index: number) => {
     layers.forEach((layer, i) => (layer.visible = i === index));
+    // Hotspot layer stays visible
+    if (viewRef.current) {
+      const hotspotLayer = viewRef.current.map.layers.find(
+        (l) => l.title === "Potential Hotspots"
+      );
+      if (hotspotLayer) hotspotLayer.visible = true;
+    }
   };
 
   return (

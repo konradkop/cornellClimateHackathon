@@ -34,6 +34,7 @@ interface FacilityListProps {
     latitude: number;
     radius: number;
     color: number[];
+    colorText: string;
   };
 }
 
@@ -49,8 +50,8 @@ const FacilityList: React.FC<FacilityListProps> = ({
   };
 
   const displayedFacilities = facilities.slice(
-    hotspotRanges[currentHotSpot.name][0],
-    hotspotRanges[currentHotSpot.name][1]
+    hotspotRanges[currentHotSpot.colorText][0],
+    hotspotRanges[currentHotSpot.colorText][1]
   );
 
   function generateRandomPhoneNumber() {
@@ -68,7 +69,7 @@ const FacilityList: React.FC<FacilityListProps> = ({
     <Container style={{ marginTop: "1rem", maxWidth: "800px" }}>
       <Card shadow="sm" padding="md" radius="md" withBorder>
         <Title order={4} mb="sm" style={{ fontSize: "1rem" }}>
-          {currentHotSpot.name.toUpperCase()} Facilities in Area
+          {currentHotSpot.name.toUpperCase()} Care Facilities
         </Title>
         <Table
           striped

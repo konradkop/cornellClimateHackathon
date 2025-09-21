@@ -26,6 +26,9 @@ const PatientTablePage: React.FC = () => {
   return (
     <Container size="xl" py="md">
       <Title order={2} mb="md">
+        Clinic view WIP
+      </Title>
+      <Title order={2} mb="md">
         Cholera Disease Surveillance - Patient Overview
       </Title>
       <PatientLineChart />
