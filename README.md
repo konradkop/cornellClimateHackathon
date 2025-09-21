@@ -1,12 +1,13 @@
-# 🌍 Cornell Climate in Health Hackathon: 
+# 🌍 Cornell Climate in Health Hackathon
 
-This project is a **React application powered by Vite** that integrates with **ArcGIS WebMap** for interactive geospatial visualization.  
+This project is a **React application powered by Vite** that integrates with **ArcGIS WebMap** for interactive geospatial visualization.
 
-https://healthinclimate.ai/
 ---
 
-This is for Cornell's climate in health hackathon. You will also need to run the backend for the email notifications. https://github.com/konradkop/cornellClimateHackathonBackend
+## 🔗 Live Demo & Related Projects
 
+- **Live site:** [healthinclimate.ai](https://healthinclimate.ai/) :contentReference[oaicite:0]{index=0}  
+- **Backend for email notifications:** [cornellClimateHackathonBackend](https://github.com/konradkop/cornellClimateHackathonBackend) :contentReference[oaicite:1]{index=1}
 
 ---
 
@@ -14,9 +15,9 @@ This is for Cornell's climate in health hackathon. You will also need to run the
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
-````
+git clone https://github.com/konradkop/cornellClimateHackathon.git
+cd cornellClimateHackathon
+```
 
 ### 2. Install Dependencies
 ```bash
